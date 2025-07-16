@@ -1,4 +1,4 @@
-package es.cic25.proy007;
+package es.cic25.proy007.model;
 
 public class Croqueta {
     private long croquetaId;

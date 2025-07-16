@@ -1,4 +1,4 @@
-package es.cic25.proy007;
+package es.cic25.proy007.controller;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import es.cic25.proy007.model.Croqueta;
+import es.cic25.proy007.service.CroquetaService;
 
 
 

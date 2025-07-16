@@ -1,9 +1,12 @@
-package es.cic25.proy007;
+package es.cic25.proy007.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import es.cic25.proy007.model.Croqueta;
+
 
 @Service
 public class CroquetaService {
