@@ -58,4 +58,9 @@ public class CroquetaService {
     public void delete(long idCroqueta){
         croquetaRepository.deleteById(idCroqueta);
     }
+
+    public Object findById(long croquetaId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
 }
