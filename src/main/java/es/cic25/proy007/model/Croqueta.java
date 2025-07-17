@@ -1,6 +1,14 @@
 package es.cic25.proy007.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Croqueta {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long croquetaId;
 
     private String saborCroqueta;
