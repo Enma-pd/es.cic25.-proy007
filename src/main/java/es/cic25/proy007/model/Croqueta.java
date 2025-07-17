@@ -9,12 +9,10 @@ import jakarta.persistence.Id;
 public class Croqueta {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    
     private long croquetaId;
-
     private String saborCroqueta;
-
     private String restaurante;
-
     private int puntuacion;
 
     public long getCroquetaId(){

@@ -12,13 +12,13 @@ public class CroquetaServiceTest {
     private CroquetaService croquetaService;
     @Test
     void testCreate() {
-        Croqueta croqueta = new Croqueta;
+        Croqueta croqueta = new Croqueta();
         croqueta.setPuntuacion(10);
         croqueta.setRestaurante("Casa Lolo");
         croqueta.setSaborCroqueta("Queso");
 
         
-        long tipoCroqueta = croquetaContoller.create((croqueta));
+        long tipoCroqueta = croquetaService.create((croqueta));
         assertTrue(tipoCroqueta > 100);
     }
 
