@@ -1,12 +1,10 @@
 package es.cic25.proy007.model;
 
 public class Croqueta {
+    
     private long croquetaId;
-
     private String saborCroqueta;
-
     private String restaurante;
-
     private int puntuacion;
 
     public long getCroquetaId(){
