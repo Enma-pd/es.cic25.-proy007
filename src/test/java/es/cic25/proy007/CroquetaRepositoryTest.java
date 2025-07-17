@@ -1,4 +1,4 @@
-package es.cic25.proy007.repository;
+package es.cic25.proy007;
 
 import org.junit.jupiter.api.Test;
 

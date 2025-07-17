@@ -1,4 +1,4 @@
-package es.cic25.proy007.service;
+package es.cic25.proy007;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import es.cic25.proy007.model.Croqueta;
+import es.cic25.proy007.service.CroquetaService;
 
 public class CroquetaServiceTest {
 
@@ -28,17 +29,19 @@ public class CroquetaServiceTest {
         assertTrue(tipoCroqueta > 100);
     }
 
-    private long idEliminacion;
     @Test
     void testDelete() {
 
         Croqueta croqueta = new Croqueta();
-        croqueta.setCroquetaId(idEliminacion);
+
         croqueta.setPuntuacion(2);
         croqueta.setRestaurante("null");
         croqueta.setSaborCroqueta("Jamon");
-        croquetaEliminada = croquetaService.delete(idEliminacion);
-        assertNull(croqueta);
+        long croquetaId3 = croquetaService.create(croqueta);
+        croquetaService.delete(croquetaId3);
+
+        Croqueta croquetaEliminada = croquetaService.get(croquetaId3);
+        assertNull(croquetaEliminada);
         
     }
 
@@ -52,10 +55,12 @@ public class CroquetaServiceTest {
     }
 
     private int puntuacion;
+    private List<Croqueta> lista;
     @Test
     void testGet2() {
         
-        Croqueta clasificacion = croquetaService.get(puntuacion);
+        Croqueta clasificacion = (Croqueta) croquetaService.get(puntuacion);
+        lista.add(clasificacion);
         assertInstanceOf(Croqueta.class, clasificacion);
         
     }
@@ -70,7 +75,6 @@ public class CroquetaServiceTest {
     }
 
     private String restaurante ="Casa Pepe";
-    private List<Croqueta> lista;
     @Test
     void testGetRestaurante() {
         Croqueta ristorante = (Croqueta) croquetaService.getRestaurante(restaurante);
@@ -87,17 +91,19 @@ public class CroquetaServiceTest {
         assertNotNull(lista);
         
     }
-    private long croquetaId3;
     @Test
     void testUpdate() {
 
         Croqueta croqueta = new Croqueta();
-        croqueta.setCroquetaId(croquetaId3);
+
         croqueta.setPuntuacion(2);
         croqueta.setRestaurante("null");
         croqueta.setSaborCroqueta("Jamon");
-        croquetaActualizada = croquetaContoller.update(croquetaId3);
-        assertInstanceOf(Croqueta.class, croqueta);
+        long croquetaId3 = croquetaService.create(croqueta);
+        croquetaService.update(croqueta);
+
+        Croqueta croquetaActualizaca = croquetaService.get(croquetaId3);
+        assertNotNull(croquetaActualizaca);
         
     }
 }

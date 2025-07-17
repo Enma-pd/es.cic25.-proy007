@@ -63,4 +63,9 @@ public class CroquetaService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
+
+    public List<Croqueta> setPuntuacion(int puntuacion) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setPuntuacion'");
+    }
 }

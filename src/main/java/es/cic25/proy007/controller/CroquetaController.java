@@ -59,8 +59,8 @@ public class CroquetaController {
 
     //Obtiene una croqueta por puntuacion
     @GetMapping("/puntuacion/{puntuacion}")
-    public List<Croqueta> get(@PathVariable int puntuacion){
-        return croquetaService.get(puntuacion);
+    public List<Croqueta> getPuntuacion(@PathVariable int puntuacion){
+        return croquetaService.setPuntuacion(puntuacion);
     }
 
     //PUT

@@ -1,4 +1,4 @@
-package es.cic25.proy007.controller;
+package es.cic25.proy007;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import es.cic25.proy007.controller.CroquetaController;
 import es.cic25.proy007.model.Croqueta;
 @SpringBootTest
 public class CroquetaControllerTest {
@@ -28,17 +29,20 @@ public class CroquetaControllerTest {
         assertTrue(tipoCroqueta > 100);
 
     }
-    private long croquetaId;
     @Test
     void testDelete() {
         
         Croqueta croqueta = new Croqueta();
-        croqueta.setCroquetaId(croquetaId);
         croqueta.setPuntuacion(2);
         croqueta.setRestaurante("null");
         croqueta.setSaborCroqueta("Jamon");
-        croquetaEliminada = croquetaContoller.delete(croquetaId);
-        assertNull(croqueta);
+
+        long croquetaId2 = croquetaContoller.create(croqueta);
+
+        croquetaContoller.delete(croquetaId2);
+
+        Croqueta croquetaEliminada =croquetaContoller.get(croquetaId2);
+        assertNull(croquetaEliminada);
     }
     private long croquetaId3;
     @Test
@@ -51,22 +55,26 @@ public class CroquetaControllerTest {
     private List<Croqueta> lista;
     @Test
     void testGet2() {
-        Croqueta croqueta = croquetaContoller.get(puntuacion);
+        Croqueta croqueta = (Croqueta) croquetaContoller.getPuntuacion(puntuacion);
         lista.add(croqueta);
         assertNotNull(lista);
 
     }
-    private long croquetaId2;
+    
     @Test
     void testUpdate() {
 
         Croqueta croqueta = new Croqueta();
-        croqueta.setCroquetaId(croquetaId2);
         croqueta.setPuntuacion(2);
         croqueta.setRestaurante("null");
         croqueta.setSaborCroqueta("Jamon");
-        croquetaActualizada = croquetaContoller.update(croquetaId2);
-        assertInstanceOf(Croqueta.class, croqueta);
+
+        long croquetaId2 = croquetaContoller.create(croqueta);
+
+        croquetaContoller.update(croqueta);
+
+        Croqueta croquetaActualizada =croquetaContoller.get(croquetaId2);
+        assertNotNull(croquetaActualizada);
 
     }
 }
