@@ -72,9 +72,9 @@ public class CroquetaControllerTest {
         croqueta.setPuntuacion(10);
         croqueta.setRestaurante("Casa Tito");
         croqueta.setSaborCroqueta("Jamón");
-        long tipoCroqueta = croquetaContoller.create(croqueta);
-        long tipoCroqueta2 = croquetaContoller.create(croqueta2);
-        long tipoCroqueta3 = croquetaContoller.create(croqueta3);
+        croquetaContoller.create(croqueta);
+        croquetaContoller.create(croqueta2);
+        croquetaContoller.create(croqueta3);
         
         
         List<Croqueta> lista = croquetaContoller.get();
