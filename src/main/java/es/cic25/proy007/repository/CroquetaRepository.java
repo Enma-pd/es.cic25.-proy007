@@ -12,5 +12,5 @@ public interface CroquetaRepository extends JpaRepository <Croqueta,Long> {
     
     List<Croqueta> findBySaborCroqueta(String saborCroqueta);
     List<Croqueta> findByRestaurante(String restaurante);
-    List<Croqueta> findByPuntuacionGreatherThanEqual(int puntuacion);
+    List<Croqueta> findByPuntuacionGreaterThanEqual(int puntuacion);
 }
