@@ -29,12 +29,10 @@ class Proy007ApplicationTests {
 
 	@Test
 	void testGetCroqueta() throws Exception {
-		MvcResult mvcResult=mockMvc.perform(get("/croqueta/1"))
+		mockMvc.perform(get("/croqueta/1"))
 			.andDo(print())
 			.andExpect(status().isOk())
 			.andReturn();
-
-		mvcResult.getResponse().getStatus();
 	}
 
 	//POST

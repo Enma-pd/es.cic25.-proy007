@@ -23,8 +23,9 @@ public class CroquetaControllerTest {
         croqueta.setPuntuacion(10);
         croqueta.setRestaurante("Casa Tito");
         croqueta.setSaborCroqueta("Jamón");
-        long tipoCroqueta = croquetaContoller.create(croqueta);
-        assertTrue(tipoCroqueta == 1);
+        croquetaContoller.create(croqueta);
+        
+        assertTrue(croquetaContoller.get(1).getCroquetaId() == 1);
     }
 
     @Test
