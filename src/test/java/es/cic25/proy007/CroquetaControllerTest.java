@@ -18,6 +18,7 @@ public class CroquetaControllerTest {
 
     @Autowired
     private CroquetaController croquetaContoller;
+
     @Test
     void testCreate() {
         Croqueta croqueta = new Croqueta(); 
@@ -26,8 +27,8 @@ public class CroquetaControllerTest {
         croqueta.setSaborCroqueta("Jamón");
         long tipoCroqueta = croquetaContoller.create(croqueta);
         assertTrue(tipoCroqueta == 1);
-
     }
+
     @Test
     void testDelete() {
         
@@ -35,12 +36,11 @@ public class CroquetaControllerTest {
         croqueta.setPuntuacion(2);
         croqueta.setRestaurante("null");
         croqueta.setSaborCroqueta("Jamon");
-
         long croquetaId2 = croquetaContoller.create(croqueta);
 
         croquetaContoller.delete(croquetaId2);
 
-        Croqueta croquetaEliminada =croquetaContoller.get(croquetaId2);
+        Croqueta croquetaEliminada=croquetaContoller.get(croquetaId2);
         assertNull(croquetaEliminada);
     }
     
@@ -51,7 +51,7 @@ public class CroquetaControllerTest {
         croqueta.setPuntuacion(10);
         croqueta.setRestaurante("Casa Tito");
         croqueta.setSaborCroqueta("Jamón");
-        long tipoCroqueta = croquetaContoller.create(croqueta);
+        croquetaContoller.create(croqueta);
 
         Croqueta tipCroqueta = croquetaContoller.get(1);
         assertTrue(tipCroqueta.getRestaurante().equals("Casa Tito"));
@@ -80,7 +80,7 @@ public class CroquetaControllerTest {
         List<Croqueta> lista = croquetaContoller.get();
         
         
-        assertNotNull(lista);
+        assertTrue(lista.size()==3);
 
     }
     
