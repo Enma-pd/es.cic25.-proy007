@@ -91,13 +91,13 @@ public class CroquetaControllerTest {
         croqueta.setPuntuacion(2);
         croqueta.setRestaurante("null");
         croqueta.setSaborCroqueta("Jamon");
+        croquetaContoller.create(croqueta);
 
-        long croquetaId2 = croquetaContoller.create(croqueta);
-
+        croqueta.setSaborCroqueta("pimiento");
         croquetaContoller.update(croqueta);
 
-        Croqueta croquetaActualizada =croquetaContoller.get(croquetaId2);
-        assertNotNull(croquetaActualizada);
+        Croqueta croquetaActualizada=croquetaContoller.get(1);
+        assertTrue(croquetaActualizada.getSaborCroqueta().equals("pimiento"));
 
     }
 }
