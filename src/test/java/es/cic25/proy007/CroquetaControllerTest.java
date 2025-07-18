@@ -24,9 +24,8 @@ public class CroquetaControllerTest {
         croqueta.setPuntuacion(10);
         croqueta.setRestaurante("Casa Tito");
         croqueta.setSaborCroqueta("Jamón");
-
-        long tipoCroqueta = croquetaContoller.create((croqueta));
-        assertTrue(tipoCroqueta > 100);
+        long tipoCroqueta = croquetaContoller.create(croqueta);
+        assertTrue(tipoCroqueta == 1);
 
     }
     @Test
@@ -44,19 +43,43 @@ public class CroquetaControllerTest {
         Croqueta croquetaEliminada =croquetaContoller.get(croquetaId2);
         assertNull(croquetaEliminada);
     }
-    private long croquetaId3;
+    
+    
     @Test
     void testGet() {
-        Croqueta croqueta = croquetaContoller.get(croquetaId3);
-        assertInstanceOf(Croqueta.class, croqueta);
+        Croqueta croqueta = new Croqueta(); 
+        croqueta.setPuntuacion(10);
+        croqueta.setRestaurante("Casa Tito");
+        croqueta.setSaborCroqueta("Jamón");
+        long tipoCroqueta = croquetaContoller.create(croqueta);
 
+        Croqueta tipCroqueta = croquetaContoller.get(1);
+        assertTrue(tipCroqueta.getRestaurante().equals("Casa Tito"));
     }
-    private int puntuacion;
-    private List<Croqueta> lista;
+    
+
     @Test
-    void testGet2() {
-        Croqueta croqueta = (Croqueta) croquetaContoller.getPuntuacion(puntuacion);
-        lista.add(croqueta);
+    void testGetListado() {
+        Croqueta croqueta = new Croqueta(); 
+        croqueta.setPuntuacion(10);
+        croqueta.setRestaurante("Casa Tito");
+        croqueta.setSaborCroqueta("Jamón");
+        Croqueta croqueta2 = new Croqueta(); 
+        croqueta.setPuntuacion(10);
+        croqueta.setRestaurante("Casa Tito");
+        croqueta.setSaborCroqueta("Jamón");
+        Croqueta croqueta3 = new Croqueta(); 
+        croqueta.setPuntuacion(10);
+        croqueta.setRestaurante("Casa Tito");
+        croqueta.setSaborCroqueta("Jamón");
+        long tipoCroqueta = croquetaContoller.create(croqueta);
+        long tipoCroqueta2 = croquetaContoller.create(croqueta2);
+        long tipoCroqueta3 = croquetaContoller.create(croqueta3);
+        
+        
+        List<Croqueta> lista = croquetaContoller.get();
+        
+        
         assertNotNull(lista);
 
     }

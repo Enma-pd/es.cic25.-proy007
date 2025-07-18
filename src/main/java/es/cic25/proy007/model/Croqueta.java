@@ -8,8 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Croqueta {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    
+    @GeneratedValue(strategy=GenerationType.AUTO) 
     private long croquetaId;
     private String saborCroqueta;
     private String restaurante;

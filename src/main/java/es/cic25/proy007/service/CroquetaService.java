@@ -44,7 +44,7 @@ public class CroquetaService {
 
     //Obtiene un listado de croquetas con una igual o mayor puntuacion
     public List<Croqueta> get(int puntuacion){
-        return croquetaRepository.findByPuntuacionGreatherThanEqual(puntuacion);
+        return croquetaRepository.findByPuntuacionGreaterThanEqual(puntuacion);
     }
 
     //PUT
