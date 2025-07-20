@@ -1,0 +1,14 @@
+drop table if exists croqueta cascade
+drop sequence if exists croqueta_seq
+create sequence croqueta_seq start with 1 increment by 50
+create table croqueta (
+    puntuacion integer not null,
+    croqueta_id bigint not null,
+    restaurante varchar(255),
+    sabor_croqueta varchar(255),
+    primary key (croqueta_id)
+)
+
+
+
+

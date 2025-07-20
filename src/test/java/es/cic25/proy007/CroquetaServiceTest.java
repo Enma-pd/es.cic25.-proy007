@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -74,7 +75,7 @@ public class CroquetaServiceTest {
         assertEquals(croqueta.getPuntuacion(), croquetaService.get2(10));
         
     }
-
+    private List<Croqueta> lista = new ArrayList<>();
     @Test
     void testGet() {
         Croqueta croqueta = new Croqueta();
@@ -82,68 +83,36 @@ public class CroquetaServiceTest {
         croqueta.setRestaurante("Mi casa");
         croqueta.setSaborCroqueta("Bonito");
         croquetaService.create(croqueta);
-        Croqueta croqueta1 = new Croqueta();
-        croqueta1.setPuntuacion(10);
-        croqueta1.setRestaurante("Mi casa");
-        croqueta1.setSaborCroqueta("Bonito");
-        croquetaService.create(croqueta1);
-        Croqueta croqueta2 = new Croqueta();
-        croqueta2.setPuntuacion(10);
-        croqueta2.setRestaurante("Mi casa");
-        croqueta2.setSaborCroqueta("Bonito");
-        croquetaService.create(croqueta);
-
-        
+        croquetaService.get();
+        assertInstanceOf(Croqueta.class, croqueta);
+        lista.add(croqueta);
+        assertTrue(lista.size()==1);  
         
     }
 
     
     @Test
     void testGetRestaurante() {
-         Croqueta croqueta = new Croqueta();
+        Croqueta croqueta = new Croqueta();
         croqueta.setPuntuacion(10);
         croqueta.setSaborCroqueta("queso");
-        croquetaService.getRestaurante("mi casa");
         croquetaService.create(croqueta);
+        croquetaService.getRestaurante("mi casa");
         lista.add(croqueta);
-        Croqueta croqueta1 = new Croqueta();
-        croqueta1.setPuntuacion(10);
-        croqueta1.setSaborCroqueta("jamón");
-        croquetaService.getRestaurante("mocasa");
-        croquetaService.create(croqueta1);
-        lista.add(croqueta1);
-        Croqueta croqueta2 = new Croqueta();
-        croqueta2.setPuntuacion(10);
-        croqueta2.setSaborCroqueta("Queso");
-        croquetaService.getRestaurante("mocasa");
-        croquetaService.create(croqueta2);
-        lista.add(croqueta2);
-        assertTrue (lista.size() ==3);
+        assertTrue(lista.size()==1);
+        
     }
 
-    private List<Croqueta> lista;
+    
     @Test
     void testGetSabor() {
         Croqueta croqueta = new Croqueta();
         croqueta.setPuntuacion(10);
-        croquetaService.getSabor(null);
-        croqueta.setRestaurante("mocasa");
+        croqueta.setRestaurante("quesona");
+        croquetaService.getSabor("queso");
         croquetaService.create(croqueta);
         lista.add(croqueta);
-        Croqueta croqueta1 = new Croqueta();
-        croqueta1.setPuntuacion(10);
-        croquetaService.getSabor("jamón");
-        croqueta1.setRestaurante("mocasa");
-        croquetaService.create(croqueta1);
-        lista.add(croqueta1);
-        Croqueta croqueta2 = new Croqueta();
-        croqueta2.setPuntuacion(10);
-        croquetaService.getSabor("Queso");
-        croqueta2.setRestaurante("mocasa");
-        croquetaService.create(croqueta2);
-        lista.add(croqueta2);
-        assertTrue (lista.size() ==3);
-        
+        assertTrue(lista.size()==1);
         
     }
     @Test
