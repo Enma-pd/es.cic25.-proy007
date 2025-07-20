@@ -9,16 +9,16 @@ import jakarta.persistence.Id;
 public class Croqueta {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO) 
-    private long croquetaId;
+    private Long croquetaId;
     private String saborCroqueta;
     private String restaurante;
     private int puntuacion;
 
-    public long getCroquetaId(){
+    public Long getCroquetaId(){
         return croquetaId;
     }
 
-    public void setCroquetaId(long croquetaId) {
+    public void setCroquetaId(Long croquetaId) {
         this.croquetaId=croquetaId;
     }
 
@@ -51,5 +51,32 @@ public class Croqueta {
     public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((croquetaId == null) ? 0 : croquetaId.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Croqueta other = (Croqueta) obj;
+        if (croquetaId == null) {
+            if (other.croquetaId != null)
+                return false;
+        } else if (!croquetaId.equals(other.croquetaId))
+            return false;
+        return true;
+    }
+
+    
 }
 
