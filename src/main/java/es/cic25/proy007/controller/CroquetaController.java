@@ -41,18 +41,18 @@ public class CroquetaController {
     //Obtiene una croqueta por id
     @GetMapping("/{croquetaId}")
     public Croqueta get(@PathVariable long croquetaId){
-        return croquetaService.get(croquetaId);
+        return croquetaService.get1(croquetaId);
     }   
 
     //Obtiene una croqueta por sabor 
     @GetMapping("/sabor/{saborcroqueta}")
-    public List<Croqueta> getSabor(@PathVariable String saborCroqueta){
+    public String getSabor(@PathVariable String saborCroqueta){
         return croquetaService.getSabor(saborCroqueta);
     }
 
     //Obtiene una croqueta por id
     @GetMapping("/restaurante/{restaurante}")
-    public List<Croqueta> getRestaurante(@PathVariable String restaurante){
+    public String getRestaurante(@PathVariable String restaurante){
         return croquetaService.getRestaurante(restaurante);
 
     }

@@ -1,0 +1,6 @@
+ //Croqueta croqueta = new Croqueta();
+       // croqueta.setPuntuacion(10);
+       // croqueta.setRestaurante("Casa Lolo");
+       // croqueta.setSaborCroqueta("Queso");
+        //croquetaService.create((croqueta));
+        //assertTrue(croquetaService.get1(1).getCroquetaId()==1);

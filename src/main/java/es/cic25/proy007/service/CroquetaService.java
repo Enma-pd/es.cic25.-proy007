@@ -28,22 +28,22 @@ public class CroquetaService {
     }
 
     //Obtiene una croqueta por id
-    public Croqueta get(long croquetaID){
+    public Croqueta get1(long croquetaID){
         return croquetaRepository.findById(croquetaID).orElse(null);
     }
 
     //Obtiene un listado de croquetas por sabor
-    public List<Croqueta> getSabor(String saborCroqueta){
+    public String getSabor(String saborCroqueta){
         return croquetaRepository.findBySaborCroqueta(saborCroqueta);
     }
 
     //Obtiene un listado de croquetas por restaurante
-    public List<Croqueta> getRestaurante(String restaurante){
+    public String getRestaurante(String restaurante){
         return croquetaRepository.findByRestaurante(restaurante);
     }
 
     //Obtiene un listado de croquetas con una igual o mayor puntuacion
-    public List<Croqueta> get(int puntuacion){
+    public int get2(int puntuacion){
         return croquetaRepository.findByPuntuacionGreaterThanEqual(puntuacion);
     }
 
@@ -55,8 +55,8 @@ public class CroquetaService {
 
     //DELETE
     //Borra una croquetea por id
-    public void delete(long idCroqueta){
-        croquetaRepository.deleteById(idCroqueta);
+    public void delete(long croqueta){
+        croquetaRepository.deleteById(croqueta);
     }
 
     public Object findById(long croquetaId) {
