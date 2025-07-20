@@ -9,6 +9,8 @@ import es.cic25.proy007.model.Croqueta;
 
 public interface CroquetaRepository extends JpaRepository <Croqueta,Long> {
 
+    //private static final LOGGER = LoggerFactory.getLogger(CroquetaRepository.interface);
+
     long findByCroquetaId(long croquetaId);
     String findBySaborCroqueta(String saborCroqueta);
     String findByRestaurante(String restaurante);
