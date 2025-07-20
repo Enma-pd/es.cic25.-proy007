@@ -1,6 +1,6 @@
 package es.cic25.proy007.repository;
 
-import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ public interface CroquetaRepository extends JpaRepository <Croqueta,Long> {
 
     //private static final LOGGER = LoggerFactory.getLogger(CroquetaRepository.interface);
 
-    long findByCroquetaId(long croquetaId);
-    String findBySaborCroqueta(String saborCroqueta);
-    String findByRestaurante(String restaurante);
-    int findByPuntuacionGreaterThanEqual(int puntuacion);
+    List<Croqueta> findByCroquetaId(long croquetaId);
+    List<Croqueta> findBySaborCroqueta(String saborCroqueta);
+    List<Croqueta> findByRestaurante(String restaurante);
+    List<Croqueta> findByPuntuacion(int puntuacion);
 }

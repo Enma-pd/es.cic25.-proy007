@@ -53,14 +53,14 @@ public class CroquetaController {
 
     //Obtiene una croqueta por sabor 
     @GetMapping("/sabor/{saborcroqueta}")
-    public String getSabor(@PathVariable String saborCroqueta){
+    public List<Croqueta> getSabor(@PathVariable String saborCroqueta){
         LOGGER.info("Obtener las croquetas con sabor"+saborCroqueta);
         return croquetaService.getSabor(saborCroqueta);
     }
 
     //Obtiene una croqueta por id
     @GetMapping("/restaurante/{restaurante}")
-    public String getRestaurante(@PathVariable String restaurante){
+    public List<Croqueta> getRestaurante(@PathVariable String restaurante){
         LOGGER.info("Obtener las croquetas de"+restaurante);
         return croquetaService.getRestaurante(restaurante);
 

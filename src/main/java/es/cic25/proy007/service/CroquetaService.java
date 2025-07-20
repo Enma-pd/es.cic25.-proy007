@@ -42,21 +42,21 @@ public class CroquetaService {
     }
 
     //Obtiene un listado de croquetas por sabor
-    public String getSabor(String saborCroqueta){
+    public List<Croqueta> getSabor(String saborCroqueta){
         LOGGER.info("Obtengo el sabor de croqueta" + saborCroqueta);
         return croquetaRepository.findBySaborCroqueta(saborCroqueta);
     }
 
     //Obtiene un listado de croquetas por restaurante
-    public String getRestaurante(String restaurante){
+    public List<Croqueta> getRestaurante(String restaurante){
         LOGGER.info("Obtengo el resuaturante"+restaurante);
         return croquetaRepository.findByRestaurante(restaurante);
     }
 
     //Obtiene un listado de croquetas con una igual o mayor puntuacion
-    public int get2(int puntuacion){
+    public List<Croqueta> get2(int puntuacion){
         LOGGER.info("La puntuación es"+ puntuacion);
-        return croquetaRepository.findByPuntuacionGreaterThanEqual(puntuacion);
+        return croquetaRepository.findByPuntuacion(puntuacion);
     }
 
     //PUT
